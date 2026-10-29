@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nahostkonflikt – Perspektiven</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap">
+<style>
+:root{--bg:#F3F0E8;--fg:#17202A;--mut:#4A525A;--line:#CFC8B8;--card:#FBF9F4;--acc:#A94A27;--inv:#17202A;--invt:#F3F0E8;color-scheme:light}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14181D;--fg:#EDE9DF;--mut:#B4B9BE;--line:#343B43;--card:#1C2228;--acc:#E08A66;--inv:#EDE9DF;--invt:#14181D;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#14181D;--fg:#EDE9DF;--mut:#B4B9BE;--line:#343B43;--card:#1C2228;--acc:#E08A66;--inv:#EDE9DF;--invt:#14181D;color-scheme:dark}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.55 Inter,Arial,sans-serif}
+h1,h2,h3{font-family:'Source Serif 4',Georgia,serif;font-weight:600;line-height:1.15;margin:0}
+button{font:inherit;color:inherit;cursor:pointer}
+.wrap{max-width:860px;margin:0 auto;padding:20px 18px 48px}
+.eyebrow{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);font-weight:600}
+.start h1{font-size:clamp(32px,7vw,52px);margin:10px 0 12px}
+.start p{color:var(--mut);margin:0 0 22px;max-width:620px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.pc{background:var(--card);border:1.5px solid var(--line);border-radius:10px;padding:14px 16px;text-align:left;min-height:84px;display:flex;flex-direction:column;gap:4px}
+.pc:hover,.pc:focus-visible{border-color:var(--fg)}
+.pc b{display:flex;align-items:center;gap:9px;font-size:18px}
+.pc span{color:var(--mut);font-size:14.5px;line-height:1.35}
+.dot{width:12px;height:12px;border-radius:50%;flex:none}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-bottom:14px;border-bottom:2px solid var(--fg)}
+.bar .t{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:20px}
+.chip{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--fg);border-radius:99px;padding:7px 14px;background:transparent;font-size:14.5px;min-height:44px}
+.nav{display:flex;gap:8px;margin:18px 0 6px;overflow-x:auto;padding-bottom:4px}
+.nav button{flex:1 0 auto;border:1.5px solid var(--line);background:transparent;border-radius:10px;padding:10px 14px;text-align:left;min-height:44px;font-size:14.5px;line-height:1.3}
+.nav button b{display:block;font-family:'Source Serif 4',Georgia,serif;font-size:22px;color:var(--acc)}
+.nav button[aria-current="true"]{background:var(--inv);color:var(--invt);border-color:var(--inv)}
+.nav button[aria-current="true"] b{color:inherit}
+.sec h2{font-size:clamp(28px,6vw,40px);margin:22px 0 8px}
+.task{color:var(--mut);margin:0 0 18px}
+details{border-top:1px solid var(--line)}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;padding:15px 30px 15px 0;font-weight:600;position:relative;min-height:44px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:4px;top:12px;font-size:24px;font-weight:400;color:var(--acc)}
+details[open]>summary::after{content:"–"}
+.ans{padding:0 0 16px;color:var(--fg)}
+.ans p{margin:0 0 10px}
+.ans ul{margin:0 0 10px;padding-left:20px}
+.ans li{margin-bottom:5px}
+.tl details{border-top:1px dashed var(--line)}
+.tl summary{font-weight:500;padding:11px 28px 11px 0}
+.tl summary b{display:inline-block;width:58px;color:var(--acc);font-family:'Source Serif 4',Georgia,serif;font-size:18px}
+.tl .ans{padding-left:58px;color:var(--mut);font-size:16px}
+.view{margin-top:22px;background:var(--card);border:1.5px solid var(--line);border-radius:10px;padding:16px 18px}
+.view .h{display:flex;align-items:center;gap:9px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;margin-bottom:8px}
+.view p{margin:0}
+.pager{display:flex;justify-content:space-between;gap:10px;margin-top:24px}
+.pager button{border:1.5px solid var(--fg);background:transparent;border-radius:10px;padding:11px 18px;min-height:44px}
+.pager .go{background:var(--inv);color:var(--invt)}
+.pager button[hidden]{display:none}
+.src{margin-top:30px;color:var(--mut);font-size:13.5px;border-top:1px solid var(--line);padding-top:12px}
+.sw{position:fixed;inset:0;background:var(--bg);overflow:auto;padding-top:env(safe-area-inset-top,0px);z-index:5}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+var P=[
+{id:'n',n:'Neutral',s:'Überblick ohne Parteinahme',c:'#6B7480'},
+{id:'il',n:'Israel',s:'Regierung und Staat Israel',c:'#2F6BB5'},
+{id:'pa',n:'Palästinenser',s:'Fatah, PLO und Autonomiebehörde',c:'#2E8B6B'},
+{id:'ha',n:'Hamas',s:'Herrscht im Gazastreifen',c:'#7B55B8'},
+{id:'us',n:'USA',s:'Israels wichtigster Verbündeter',c:'#C0562C'},
+{id:'de',n:'Deutschland',s:'Westlicher Partner Israels',c:'#A3801F'},
+{id:'ru',n:'Russland',s:'Mitglied im Nahost-Quartett',c:'#B03E57'},
+{id:'eg',n:'Ägypten',s:'Erstes arabisches Land mit Frieden',c:'#5B7F3F'},
+{id:'ir',n:'Iran',s:'Erklärter Erzfeind Israels',c:'#2F8399'},
+{id:'tr',n:'Türkei',s:'Regionalmacht und NATO-Mitglied',c:'#8E5A3C'},
+{id:'un',n:'Vereinte Nationen',s:'Teilungsplan 1947, Vollversammlung',c:'#5B6F93'}];
+var V={
+il:['Israel ruft 1948 seinen Staat aus und nennt den ersten Krieg „Unabhängigkeitskrieg“. Im Sechstagekrieg 1967 siegt es über Ägypten, Syrien und Jordanien und besetzt unter anderem das Westjordanland und den Gazastreifen.','Premier Bennett lehnt eine Zwei-Staaten-Lösung ab und will die Zahl jüdischer Siedler im Westjordanland auf eine Million erhöhen. Zugleich gilt: Die Palästinenser werden nirgendwo anders hingehen, man muss miteinander leben.','Minister Erdan sagt, die abgerissenen Gebäude seien illegal neben dem Sicherheitszaun gebaut worden und eine Bedrohung für Bürger und Sicherheitskräfte. Die Sperranlage begann 2002 nach schweren Anschlägen, seitdem ging die Zahl der Anschläge deutlich zurück.','Israel schloss 1978 in Camp David Frieden mit Ägypten und gab den Sinai zurück. 1993 unterzeichnete es mit der PLO eine Prinzipienerklärung, 2005 räumte es alle Siedlungen im Gazastreifen, kontrolliert aber weiter dessen Außengrenzen.'],
+pa:['Die Palästinenser sehen im UN-Teilungsplan von 1947 eine Verletzung der Rechte der Mehrheitsbevölkerung. Mit der Staatsgründung Israels 1948 beginnen Flucht und Vertreibung. 1988 ruft der Palästinensische Nationalrat unter Arafat den Staat Palästina aus.','Die Fatah ist laut Quelle nur eine Randfigur im aktuellen Konflikt. Präsident Abbas will die Zwei-Staaten-Lösung: völkerrechtliche Anerkennung Palästinas und friedliche Koexistenz mit Israel.','Walid Asaf von der Autonomiebehörde nennt die Abrissanordnung „unfair“. Israel suche einen Vorwand, Tausende weitere Gebäude nahe der Mauer zu zerstören. Die Sperranlage verlaufe durch das Viertel Sur Bahir.','1993 erkennen sich Israel und PLO an, 1995 folgt Autonomie im Westjordanland und Gazastreifen. 2000 scheitert Camp David, 2008 einigen sich beide Seiten in Annapolis auf die Wiederaufnahme von Verhandlungen.'],
+ha:['Die Hamas kontrolliert den Gazastreifen. Ihre Charta fordert die Zerstörung Israels und die gewaltsame Errichtung eines islamischen Staates Palästina.','Im Vertrauen auf ihr Waffenarsenal und Unterstützung aus der arabischen Welt bleibt sie unnachgiebig. Sie will eine Öffnung des Gazastreifens erzwingen und ihre Bedingungen für einen Waffenstillstand diktieren. Katar löste Syrien und Iran als Hauptgeldgeber ab.','Wie andere sie sehen: Die Bundesregierung macht die Hamas für die Krise verantwortlich und stuft sie als terroristische Organisation ein. Russland erkennt sie als Gesprächspartner an, verurteilt aber die Raketenangriffe auf Israel.','Die Hamas will einen Waffenstillstand zu ihren Bedingungen. Für Russland ist ein Waffenstillstand zwischen Israel und Hamas derzeit das Allerwichtigste. Innenpolitisch gerät die Hamas laut Quelle wegen ausbleibender Erfolge unter Druck.'],
+us:['Unter Präsident Clinton wird 1993 in Washington die Prinzipienerklärung zwischen Israel und der PLO unterzeichnet. Beim Gipfel von Camp David 2000 gelingt Clinton keine Einigung.','Unter Trump stellten sich die USA so eindeutig wie lange nicht mehr auf Israels Seite, die Siedlungspolitik wurde legalisiert. Unter Biden scheinen sie wieder eine Zwei-Staaten-Lösung anzustreben.','Im UN-Sicherheitsrat stimmten die USA gegen einen von Kuwait eingebrachten Entwurf, der ein Ende der israelischen Gewalt forderte. Arabische und muslimische Länder drängten danach auf die Dringlichkeitssitzung der Vollversammlung.','Die USA vermittelten 1993 und 2000 und sind wie Russland und die EU Mitglied des Nahost-Quartetts.'],
+de:['Kanzlerin Merkel lässt keinen Zweifel an Deutschlands Prioritäten: Israel hat das Recht auf Verteidigung.','Wie andere westliche Partner verlangt Deutschland von Jerusalem seit längerem vergeblich die Anerkennung eines Palästinenserstaates. Die Bundesregierung macht die Hamas für die aktuelle Krise verantwortlich.','Außenminister Maas bekräftigt: Eine israelische Annexion von Palästinensergebieten wäre mit internationalem Recht nicht vereinbar.','Deutschland steht an der Seite der Zwei-Staaten-Lösung, die auch der Westen verfolgt: Anerkennung Palästinas bei friedlicher Koexistenz mit Israel.'],
+ru:['Russland ist wie USA und EU Mitglied des Nahost-Quartetts und hält sich im aktuellen Konflikt zurück.','Moskau ist auf ein Gleichgewicht in der Region bedacht und sieht die Verschlechterung der Beziehungen zwischen Israel und Ägypten mit Sorge.','Russland erkennt die Hamas als Gesprächspartner an, verurteilt aber klar die Raketenangriffe auf Israel. Gegenüber Jerusalem nimmt es eine distanzierte Haltung ein, obwohl es Protegé israelfeindlicher Staaten wie Syrien ist.','Ein Waffenstillstand zwischen Israel und der Hamas ist für Russland derzeit das Allerwichtigste.'],
+eg:['Ägypten verwaltete den Gazastreifen nach 1947 und wurde 1956 in der Suezkrise von Israel besetzt. 1978 schloss es als erstes arabisches Land Frieden mit Israel, der Sinai wurde zurückgegeben.','Unter Präsident al-Sisi bemüht sich Ägypten um eine vermittelnde Rolle. An einer weiteren Eskalation hat die Regierung kein Interesse, denn sie kämpft selbst gegen Dschihadisten an der ägyptisch-israelischen Grenze.','Die ägyptische Bevölkerung erwartet mehrheitlich eine klare anti-israelische Haltung. Gleichzeitig blockiert Ägypten gemeinsam mit Israel seit über zehn Jahren den Gazastreifen.','Ägypten versucht, den Konflikt zwischen Hamas und Fatah zu entschärfen.'],
+ir:['Der Iran gilt als erklärter Erzfeind Israels.','Nach westlichen Erkenntnissen ist er direkter Geldgeber mehrerer radikaler Palästinensergruppen, auch der Hamas. Dabei konkurriert Teheran mit Katar.','Israel wirft dem Iran vor, den Gazastreifen mit Waffen versorgt zu haben, ein Sprecher wollte das nicht kommentieren. Die Rakete Fadschr-5 wurde 2006 im Iran entwickelt.','Katar will laut Beobachtern den Einfluss Irans auf die Palästinenser schmälern.'],
+tr:['Die Türkei unter Präsident Erdogan zeigt Solidarität mit dem Gazastreifen, nach eigener Aussage eine Herzensangelegenheit.','Mehrfach hat Erdogan das Gewicht der Regionalmacht Türkei für die Sache der Palästinenser in die Waagschale geworfen.','Erdogan nannte den Umgang Israels mit den Palästinensern schweres Unrecht. In der arabischen Welt wurde er dafür gefeiert.','Als Vermittler und Versöhner scheidet das NATO-Mitglied Türkei damit laut Quelle aus.'],
+un:['Großbritannien übergab 1947 die Verantwortung für Palästina an die UN. Sie beschlossen die Teilung in einen arabischen und einen jüdischen Staat: 33 Staaten stimmten dafür, 13 dagegen, 10 enthielten sich.','Die UN-Vollversammlung wollte sich auf Antrag der Palästinenser wegen der Gewalt an der Gaza-Grenze zu einer Dringlichkeitssitzung treffen. Dort hatten Soldaten mehr als 120 Palästinenser getötet.','Abstimmungen im Sicherheitsrat sind bindend, Resolutionen der Vollversammlung haben keine rechtliche Bedeutung.','Auf UN-Resolutionen und den Teilungsplan von 1947 berief sich 1988 der Palästinensische Nationalrat bei der Ausrufung des Staates Palästina.']};
+var TL=[
+['1947','UN-Teilungsplan','Die UN beschließen die Teilung Palästinas in einen arabischen und einen jüdischen Staat. Die jüdische Seite nimmt an, die arabische lehnt ab.'],
+['1948','Gründung Israels','Die Ausrufung des Staates löst den ersten israelisch-arabischen Krieg aus. Israel gewinnt Gebiete, Flucht und Vertreibung der Palästinenser beginnen.'],
+['1956','Suezkrise','Israel besetzt kurzzeitig den Gazastreifen, danach verwaltet ihn wieder Ägypten.'],
+['1967','Sechstagekrieg','Israel siegt über Ägypten, Syrien und Jordanien. Es nimmt Ostjerusalem ein und besetzt Sinai, Westjordanland, Golanhöhen und Gazastreifen.'],
+['1978','Frieden mit Ägypten','Camp-David-Abkommen, Friedensvertrag, Ägypten erkennt Israel an. Israel zieht sich bis 1982 vom Sinai zurück.'],
+['1987','Erste Intifada','Palästinensischer Aufstand gegen die Besatzung in Westjordanland, Gazastreifen und Ostjerusalem. Er dauert bis 1993.'],
+['1988','Staat Palästina','Der Palästinensische Nationalrat unter Arafat ruft in Algier den Staat Palästina aus, mit Bezug auf UN-Resolutionen und den Teilungsplan.'],
+['1993','Osloer Friedensprozess','Israel und PLO erkennen sich gegenseitig an. 1995 folgt Autonomie im Westjordanland und Gazastreifen.'],
+['2000','Rückschlag','Der Gipfel in Camp David scheitert. Im September beginnt die Zweite Intifada, Israel greift den Gazastreifen mit Raketen an.'],
+['2005','Räumung Gazas','Israel räumt alle jüdischen Siedlungen im Gazastreifen, kontrolliert aber weiter die Außengrenzen.'],
+['2008','Annapolis','Eine Nahost-Friedenskonferenz bringt eine Erklärung zur Wiederaufnahme von Verhandlungen. Später kommt es zu Verletzungen der Waffenruhe.'],
+['2014','Neue Eskalation','Entführung und Ermordung dreier israelischer Jugendlicher und eines palästinensischen Jugendlichen lassen den Konflikt wieder aufflammen.']];
+var S=[
+{t:'Inhalt und Entwicklung',k:'Beschreibe die aktuelle Situation und wie sich der Konflikt entwickelte.',q:[
+['Worum geht es in dem Konflikt?','<p>Der Nahostkonflikt ist ein teils bewaffneter, bis heute ungelöster Konflikt zwischen Israelis und Arabern. Beide Seiten erheben aufgrund ihrer Geschichte Anspruch auf die Region des heutigen Palästina.</p><p>Politisch und militärisch gestritten wird um Land, um Grenzverläufe und um Siedlungen im Westjordanland.</p>'],
+['Welche aktuellen (tagespolitischen) Bezüge gibt es?','<p>Die Quellen zeigen Schlaglichter bis 2021:</p><ul><li>Israel reißt Palästinenser-Häuser in Ostjerusalem ab, nahe der Sperranlage.</li><li>Aus Gaza werden Raketen auf israelische Orte abgefeuert, das Abwehrsystem Iron Dome fängt zwei von drei ab.</li><li>An der Gaza-Grenze töten Soldaten bei Protesten mehr als 120 Palästinenser, die UN-Vollversammlung befasst sich damit.</li><li>Israels neuer Premier Bennett lehnt eine Zwei-Staaten-Lösung ab.</li></ul>'],
+['Wie entwickelte sich der Konflikt (Anlass, Verlauf)?','<p>Tippe auf ein Jahr, um mehr zu lesen.</p><div class="tl">'+TL.map(function(e){return '<details><summary><b>'+e[0]+'</b>'+e[1]+'</summary><div class="ans">'+e[2]+'</div></details>'}).join('')+'</div>'],
+['Wer ist in welcher Weise betroffen?','<ul><li><b>Palästinenser in Ostjerusalem:</b> Dutzende Wohnungen werden abgerissen, Bewohner aus den Gebäuden geholt.</li><li><b>Menschen in Israel:</b> Bei Raketenalarm in Sderot flüchten Menschen in Schutzräume, Verletzte gibt es.</li><li><b>Palästinenser in Gaza:</b> Tote und Tausende Verletzte bei Protesten, dazu eine mehr als zehnjährige Blockade durch Israel und Ägypten.</li><li><b>Die Region:</b> Ägypten kämpft selbst gegen Dschihadisten an der Grenze zu Israel.</li></ul>']]},
+{t:'Konfliktstrukturen',k:'Erkläre, wer sich gegenübersteht, welche Interessen sie haben und welche Rolle andere spielen.',q:[
+['Wer sind die Konfliktparteien?','<ul><li><b>Israel:</b> Premier Bennett (seit 2021).</li><li><b>Hamas:</b> kontrolliert den Gazastreifen.</li><li><b>Fatah:</b> die gemäßigten Palästinenser mit Präsident Abbas, im Westjordanland.</li></ul>'],
+['Welche Interessen spielen eine Rolle?','<ul><li><b>Israel</b> will große Teile des Westjordanlandes behalten und mehr Siedler ansiedeln.</li><li><b>Hamas</b> fordert die Zerstörung Israels und einen islamischen Staat Palästina.</li><li><b>Fatah</b> strebt die Zwei-Staaten-Lösung an: Anerkennung Palästinas und friedliche Koexistenz.</li></ul>'],
+['Wie verhalten sich die internationalen Hauptakteure?','<ul><li><b>USA:</b> engster Verbündeter Israels.</li><li><b>Deutschland:</b> Israels Sicherheit hat Priorität.</li><li><b>Russland:</b> hält sich zurück, will Waffenstillstand.</li><li><b>Ägypten:</b> vermittelt.</li><li><b>Iran:</b> unterstützt radikale Palästinensergruppen, auch mit Geld.</li><li><b>Türkei:</b> stellt sich hinter die Palästinenser.</li></ul><p>Wähle oben eine Perspektive, um einzelne Akteure genauer zu sehen.</p>'],
+['Welche strukturellen Ursachen hat der Konflikt?','<ul><li>Zwei Ansprüche auf dasselbe Gebiet, beide aus der Geschichte begründet.</li><li>Der UN-Plan von 1947 wurde von der arabischen Seite abgelehnt.</li><li>Seit 1967 besetzt Israel Gebiete, Siedlungen wachsen weiter.</li><li>Die Palästinenser sind gespalten: Hamas im Gazastreifen, Fatah im Westjordanland.</li><li>Regionalmächte wie Iran, Katar und Türkei konkurrieren um Einfluss.</li></ul>']]},
+{t:'Beurteilungen',k:'Erläutere Positionen aus Sicht von Recht, Macht und Sicherheit und prüfe die mediale Darstellung.',q:[
+['Wie ist der Konflikt zu beurteilen?','<p><b>Recht:</b> Außenminister Maas hält eine israelische Annexion von Palästinensergebieten für nicht vereinbar mit internationalem Recht. Resolutionen der UN-Vollversammlung sind nicht bindend, Beschlüsse des Sicherheitsrats schon.</p><p><b>Sicherheit und Macht:</b> Israel verweist auf Anschläge und baut die Sperranlage, die Hamas setzt auf ihr Waffenarsenal und die Unterstützung der arabischen Welt.</p><p><b>Deine Sicht:</b> Welche der Begründungen überzeugt dich am meisten, und warum?</p>'],
+['Wie ist die mediale Darstellung?','<p>Dasselbe Ereignis klingt je nach Quelle anders. Beim Abriss in Ostjerusalem:</p><ul><li><b>Israelische Seite:</b> Die Häuser seien illegal gebaut und eine Bedrohung.</li><li><b>Palästinensische Seite:</b> Die Anordnung sei „unfair“, ein Vorwand für weitere Abrisse.</li></ul><p>Das Buch rät deshalb, bei der Quellenauswahl nicht nur eine Perspektive zu berücksichtigen.</p>']]},
+{t:'Lösungsmöglichkeiten',k:'Beschreibe Szenarien, Handlungsoptionen und beurteile Wege zur Lösung.',q:[
+['Gibt es Möglichkeiten der Konfliktlösung?','<ul><li><b>Zwei-Staaten-Lösung:</b> von Fatah und Westen verfolgt, von Bennett abgelehnt.</li><li><b>Verhandlungen:</b> Oslo 1993/1995 brachte Autonomie, Camp David 2000 scheiterte, Annapolis 2008 brachte eine Erklärung.</li><li><b>Waffenstillstand:</b> für Russland aktuell das Wichtigste.</li></ul>'],
+['Welche Handlungsoptionen haben die Konfliktparteien?','<ul><li><b>Israel</b> kann die Siedlungspolitik fortsetzen oder verhandeln, weiß aber: Die Palästinenser bleiben.</li><li><b>Hamas</b> setzt auf Druck mit Waffen, um Gaza zu öffnen.</li><li><b>Fatah</b> setzt auf Diplomatie und Kontakte zu westlichen Politikern, bisher ohne greifbaren Erfolg.</li></ul>'],
+['Wer kann zur Konfliktlösung beitragen?','<ul><li><b>Ägypten</b> vermittelt zwischen Hamas und Fatah.</li><li><b>USA:</b> vermittelten 1993 und 2000.</li><li><b>Nahost-Quartett:</b> USA, EU, Russland.</li></ul><p>Die Türkei scheidet laut Quelle als Vermittler aus.</p>'],
+['Wer ist an einer Lösung interessiert oder profitiert?','<ul><li>Ägypten will keine Eskalation.</li><li>Russland will ein Gleichgewicht in der Region.</li><li>Iran und Katar konkurrieren um Einfluss auf die Palästinenser.</li><li>Hamas gerät ohne Erfolge unter Druck.</li></ul>']]}];
+var st={p:null,s:0},app=document.getElementById('app');
+function pf(id){return P.filter(function(x){return x.id===id})[0]}
+function home(){
+app.innerHTML='<div class="start"><div class="eyebrow">Nahostkonflikt</div><h1>Aus welcher Perspektive möchtest du den Konflikt erleben?</h1><p>Du kannst jederzeit wechseln. Die Inhalte stammen ausschließlich aus den hochgeladenen Buchseiten.</p><div class="grid">'+P.map(function(x){return '<button class="pc" data-p="'+x.id+'"><b><i class="dot" style="background:'+x.c+'"></i>'+x.n+'</b><span>'+x.s+'</span></button>'}).join('')+'</div></div>';
+app.querySelectorAll('.pc').forEach(function(b){b.onclick=function(){st.p=b.dataset.p;st.s=0;main();window.scrollTo(0,0)}})}
+function main(){
+var p=pf(st.p),s=S[st.s],i=P.indexOf(p);
+var vt=p.id==='n'?'Die Antworten oben geben die Quelle ohne Parteinahme wieder. Wähle oben eine Perspektive, um zu sehen, wie einzelne Akteure den Konflikt darstellen.':V[p.id][st.s];
+app.innerHTML='<div class="bar"><span class="t">Nahostkonflikt</span><button class="chip" id="sw"><i class="dot" style="background:'+p.c+'"></i>'+p.n+' · wechseln</button></div>'+
+'<div class="nav" role="tablist">'+S.map(function(x,j){return '<button data-s="'+j+'"'+(j===st.s?' aria-current="true"':'')+'><b>'+(j+1)+'</b>'+x.t+'</button>'}).join('')+'</div>'+
+'<div class="sec"><h2>'+s.t+'</h2><p class="task">'+s.k+'</p>'+s.q.map(function(q,j){return '<details'+(j===0?' open':'')+'><summary>'+q[0]+'</summary><div class="ans">'+q[1]+'</div></details>'}).join('')+
+'<div class="view"><div class="h"><i class="dot" style="background:'+p.c+'"></i>'+(p.id==='n'?'Neutral':'Aus Sicht von '+p.n)+'</div><p>'+vt+'</p></div>'+
+'<div class="pager"><button id="pv"'+(st.s===0?' hidden':'')+'>Zurück</button><span></span><button class="go" id="nx"'+(st.s===3?' hidden':'')+'>Weiter</button></div></div>'+
+'<div class="src">Quelle: ausschließlich die hochgeladenen Buchseiten (S. 108–111, 120). Die Texte reichen bis etwa 2021; spätere Ereignisse sind darin nicht enthalten.</div>';
+document.getElementById('sw').onclick=home;
+app.querySelectorAll('.nav button').forEach(function(b){b.onclick=function(){st.s=+b.dataset.s;main();window.scrollTo(0,0)}});
+document.getElementById('pv').onclick=function(){st.s--;main();window.scrollTo(0,0)};
+document.getElementById('nx').onclick=function(){st.s++;main();window.scrollTo(0,0)}}
+home();
+</script>
+</body>
+</html>
